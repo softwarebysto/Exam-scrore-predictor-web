@@ -61,9 +61,11 @@
     Random rnd = new Random();
 
     public async void PredictScore()
-    {                
+    {
 
-        if (!_hourError && !_coursesError)
+        _hourError=hours > 0 && hours < 20.26 ? false : true;
+        _coursesError = courses > 0 && courses < 19 ? false : true;
+        if (!_hourError && !_coursesError )
         {
             _showLoading = true;
             try
