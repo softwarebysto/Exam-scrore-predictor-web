@@ -63,8 +63,8 @@
     public async void PredictScore()
     {
 
-        _hourError=hours > 0 && hours < 20.26 ? false : true;
-        _coursesError = courses > 0 && courses < 19 ? false : true;
+        _hourError=hours > 0 && hours <= 20.26 ? false : true;
+        _coursesError = courses > 0 && courses <= 19 ? false : true;
         if (!_hourError && !_coursesError )
         {
             _showLoading = true;
@@ -107,7 +107,7 @@
         if (e.Value!=null)
         {
             if (double.TryParse(e?.Value?.ToString(), out double hours))            
-                _hourError = hours > 0 && hours < 20.26 ? false : true;            
+                _hourError = hours > 0 && hours <= 20.26 ? false : true;            
             else            
                 _hourError = false;           
         }
@@ -117,7 +117,7 @@
         if (e.Value!=null)
         {
             if (int.TryParse(e?.Value?.ToString(), out int courses))
-                _coursesError = courses > 0 && courses < 19 ? false : true;
+                _coursesError = courses > 0 && courses <= 19 ? false : true;
             else
                 _coursesError = false;
         }     
